@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js" charset="utf-8"></script>
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </head>
+    <body>
+	
+		<div class="topBar">
+			<p class="theTitle">Potential Tuition Revenue Generated</p>
+		</div>
+		
+		
+       
+
+        
+
+        <div class="container theContainer">
+			<div class="infoDiv">
+				<img class="infoButton" src="info.png"/>
+				<p id="descriptionTitle">
+					Click above to reveal a description about this project.
+				</p>
+				<p id="description" style="display:none;">
+						The University of North Carolina at Chapel Hill has historically always had a 18% out state and 82% in state student population spread. This is a website showing the potential tuition revenue differences if UNC were to adopt the percentage distrubition of students of other peer and local universities.
+						
+						<br>
+						<br>
+
+						Featured below is a graph showing the potential gains or lossses in tuition revenue in millions of dollars. The blue sections represent out of state numbers while the grey sections represent in state numbers. Tuition revenue is defined in this sense:
+						
+						<br>
+						<br>
+						
+						Keep UNC's student body population the same and keep it's tuiton rates the same. Simply change the percentages for student distribution. 
+						
+						<br>
+						<br>
+
+						Hovering over a section of the graph will reveal the information for that particular university. The University name will be shown, then going left to right, will be the school's in state/out of state distribution of students. After that will be the tuition rates for that particular university followed by the potential tuition revenue based on the percentages. Finally, the student body population of the partulcar university is featured. 
+					</p>
+				
+			</div>
+        </div>
+		
+		<div class="footer">
+			<div class="container">
+				<p class="footerInfo">&copy; Danila Chenchik Industries</p>
+				<a href="http://github.com/chenchik" class="footerInfo"><p>Project Information</p></a>
+			</div>
+		</div>
+		<script>
+		$('.infoButton').on('click', function(e){
+			$('#description').slideToggle('fast');
+			$('#descriptionTitle').slideUp('fast');
+		});
+		</script>
+        <script src="app.js"></script>
+    </body>
+</html>

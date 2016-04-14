@@ -15,6 +15,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </head>
     <body>
+		<div class="tooltip">
+        </div>
 	
 		<div class="topBar">
 			<p class="theTitle">Potential Tuition Revenue Generated</p>
@@ -29,34 +31,36 @@
 			<div class="infoDiv">
 				<img class="infoButton" src="info.png"/>
 				<p id="descriptionTitle">
-					Click above to reveal a description about this project.
+					The University of North Carolina at Chapel Hill has historically always had a 18% out state and 82% in state student population spread. This is a website showing the potential tuition revenue differences if UNC were to adopt the percentage distrubition of students of other peer and local universities.
 				</p>
-				<p id="description" style="display:none;">
+				<div id="description" style="display:none;">
+				
+						<p class="innerIntro introToIntro">
 						The University of North Carolina at Chapel Hill has historically always had a 18% out state and 82% in state student population spread. This is a website showing the potential tuition revenue differences if UNC were to adopt the percentage distrubition of students of other peer and local universities.
+						</p>
 						
-						<br>
-						<br>
-
-						Featured below is a graph showing the potential gains or lossses in tuition revenue in millions of dollars. The blue sections represent out of state numbers while the grey sections represent in state numbers. Tuition revenue is defined in this sense:
+						<p class="innerIntro">
+						Peer universities in this context are defined as public universities with similar rankings nationwide. Local universities are defined as public universities in North Carolina. Featured below is a graph showing the potential gains or lossses in tuition revenue in millions of dollars. The blue sections represent out of state numbers while the grey sections represent in state numbers. Tuition revenue is defined in this sense:
+						</p>
 						
-						<br>
-						<br>
-						
+						<p class="innerIntro">
 						Keep UNC's student body population the same and keep it's tuiton rates the same. Simply change the percentages for student distribution. 
-						
-						<br>
-						<br>
-
+						</p>
+					
+						<p class="innerIntro">
 						Hovering over a section of the graph will reveal the information for that particular university. The University name will be shown, then going left to right, will be the school's in state/out of state distribution of students. After that will be the tuition rates for that particular university followed by the potential tuition revenue based on the percentages. Finally, the student body population of the partulcar university is featured. 
-					</p>
+						</p>
+					</div>
 				
 			</div>
+			<div class="tooltip">
+        </div>
         </div>
 		
 		<div class="footer">
-			<div class="container">
+			<div class="container footerContainer">
 				<p class="footerInfo">&copy; Danila Chenchik Industries</p>
-				<a href="http://github.com/chenchik" class="footerInfo"><p>Project Information</p></a>
+				<a href="https://github.com/chenchik/D3Project" class="footerInfo"><p>Project Information</p></a>
 			</div>
 		</div>
 		<script>

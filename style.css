@@ -66,10 +66,12 @@ img.infoButton:hover {
     cursor: pointer;
 }
 .infoDiv {
-    text-align: center;
+	text-align: left;
     margin-bottom: 30px;
+	padding-left: 33px;
+    padding-right: 33px;
 }
-p#description {
+#description {
     margin-bottom: 30px;
     margin-top: 30px;
     color: #888;
@@ -100,4 +102,40 @@ a.footerInfo:hover {
 }
 .legendSvg{
 	margin-bottom: 30px;
+}
+img.infoButton {
+    height: 75px;
+    width: 75px;
+}
+#description {
+    text-align: left;
+	text-align: left;
+	line-height: 25px;
+    
+}
+p.innerIntro {
+    color: #a8a8a8;
+}
+p.innerIntro.introToIntro {
+    font-size: 20px;
+    font-weight: 100;
+    color: #a8a8a8;
+	margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+	line-height: 30px;
+}
+.titles{
+	font-size: 22px;
+	font-weight: 700;
+}
+.subtitles{
+	font-size: 15px;
+}
+.container.footerContainer {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.barGroups:hover rect.bar {
+    opacity: 0.6;
 }

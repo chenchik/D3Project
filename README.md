@@ -24,3 +24,8 @@ Now the website will be running on port 3000.
 To access the site, type this into your browser's url.
 
 <code>http://localhost:3000</code>
+
+Sources:
+
+http://www.collegexpress.com
+https://www.cappex.com

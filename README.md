@@ -17,8 +17,6 @@ To download this project, download the zip file or pull the repository from gith
 
 To run the website on your local machine type this into the command line:
 
-<code>npm init</code>
-
 <code>serve --port 3000</code>
 
 Now the website will be running on port 3000.

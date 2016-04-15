@@ -1,34 +1,29 @@
 university,pOutOfState,pInState,tOutOfState,tInState,rOutOfState,rInState,studentPop
-UNC,18,82,33644,8562,170,197,29390
-NC State,10,90,27160,10809,94,216,24473
-NCCU,10,90,17557,5519,94,216,5917
-NCAT,20,80,18732,5972,188,192,10561
-ECU,12,88,22124,6550,113,211,22252
-UNC School of Arts,52,48,24403,8983,490,115,958
-UNCA,12,88,22219,6605,113,211,3900
-UNCC,10,90,19703,6532,94,216,27238
-UNCG,6,94,21904,7042,57,225,19000
-UNCP,5,95,16012,5564,47,228,6200
-UNCW,16,94,20557,6691,151,225,13937
+University of North Carolina at Chapel Hill,18,82,33644,8562,170,197,29390
+North Carolina State University,10,90,27160,10809,94,216,24473
+Noth Carolina Central University,10,90,17557,5519,94,216,5917
+North Carolina Agriculture and Technical State University,20,80,18732,5972,188,192,10561
+East Carolina University,12,88,22124,6550,113,211,22252
+University of North Carolina School of Arts,52,48,24403,8983,490,115,958
+University of North Carolina at Asheville,12,88,22219,6605,113,211,3900
+University of North Carolina at Charlotte,10,90,19703,6532,94,216,27238
+University of North Carolina at Greensboro,6,94,21904,7042,57,225,19000
+University of North Carolina at Pembroke,5,95,16012,5564,47,228,6200
+University of North Carolina at Wilmington,16,94,20557,6691,151,225,13937
 Western Carolina University,7,93,17296,6903,66,223,10300
-Appalachian State Univ,8,92,20660,6835,75,221,17932
+Appalachian State University,8,92,20660,6835,75,221,17932
 Winston Salem State University ,8,92,17250,7434,75,221,5220
 Fayetteville State University,5,95,16873,5265,47,228,5781
 Elizabeth City State University,13,87,19175,6822,122,209,3307
 University Of Michigan,34,66,43476,13856,320,158,42716
-UC Berkley,11,89,38139,13431,104,213,35833
-UCLA,7,93,37110,13086,66,223,38157
+University of California Berkley,11,89,38139,13431,104,213,35833
+University of California Los Angeles,7,93,37110,13086,66,223,38157
 College of William and Mary,33,67,40516,19372,311,161,8258
 Georgia Tech,29,71,32396,12204,273,170,21557
-UC Santa Barbara,3,97,37599,14477,28,233,21685
-UC Irvine,1,99,39447,14739,9,237,22216
+University of California Santa Barbara,3,97,37599,14477,28,233,21685
+University of California Irvine,1,99,39447,14739,9,237,22216
 San Diego State university,7,93,18136,6976,66,223,29187
-UC Dan Diego,3,97,38066,14042,28,233,29176
-UC Davis,3,97,38558,14534,28,233,31392
+University of California San Diego,3,97,38066,14042,28,233,29176
+University of California Davis,3,97,38558,14534,28,233,31392
 University of Illinois ​Urbana Champaign,9,91,30786,15626,85,218,45140
-University of Wisconsin Madison,33,67,10399,29650,311,161,42180
-15,15,85,33644,8562,170,197,00000
-20,20,80,33644,8562,141,204,00000
-25,25,75,33644,8562,188,192,00000
-30,30,70,33644,8562,236,180,00000
-35,35,65,33644,8562,283,168,00000
+University of Wisconsin Madison,33,67,29650,10399,311,161,42180

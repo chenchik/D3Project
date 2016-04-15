@@ -1,7 +1,13 @@
+//small amount of jquery for information slider effect
+$('.infoButton').on('click', function(e){
+	$('#description').slideToggle('fast');
+	$('#descriptionTitle').slideUp('fast');
+});
+
 var margin = {top: 0, right: 20, bottom: 10, left: 40};
 var width = 1150 - margin.left - margin.right;
 var height = 600 - margin.top - margin.bottom;
-var otherHeight = 250;
+var otherHeight = 280;
 var bottomSvgTopMargin = 0;
 
 var legendSvg = d3.select('.container').append('svg')
@@ -15,14 +21,14 @@ var svg = d3.select('.container').append('svg')
     .attr('height', height + margin.top + margin.bottom)
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-    //transform: translate(40, 20);
-	
+
+//svg for university info	
 var bottomSvg = d3.select('.container').append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', otherHeight)
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-    //transform: translate(40, 20);
+
 
 
 	
@@ -55,34 +61,8 @@ var outStateLabel = legendSvg.append('text')
 		.text( 'Out of State Revenue (in Millions)')
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
-		.attr("fill", "#bbbbbb");
-
-/*var statesAxisLabel = svg.append('text')
-		.attr('class', 'xAxisLegend')
-		.attr("x", width-15)
-		.attr("y", height+15)
-		.text( 'Schools')
-		.attr("font-family", "sans-serif")
-		.attr("font-size", "80px")
-		.attr("fill", "#bbbbbb");
-*/		
-		
-		
-		
-		
-		
-		
-		
-//make unc stand out more in chart
-//change revenue different to be at the very left 
-	
-	
-	
-	
-	
-	
-	
-	
+		.attr("fill", "#bbbbbb");		
+			
 	
 var scaleX = d3.scale.ordinal()
     .rangeRoundBands([0, width], 0.2);
@@ -99,9 +79,7 @@ var yAxis = d3.svg.axis()
     .orient('left')
     .ticks(15, '$');
 	
-	
-//console.log(addCommas(37000000));
-	
+//function to add commas to large numbers	
 function addCommas(a){
 	var temp = a.toString().split('');
 	if(temp.length <= 3){
@@ -121,21 +99,16 @@ function addCommas(a){
 
 d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
     if (err) throw error;
-	//specific offsets for numbers
+	//global offsets
 	var shapesOffset = 40;
 	var inOutOffset = 140;
 	var topNumOffset = 65;
 	var bottomNumOffset = 125;
-	var topTitleOffset = 80;
-	var offsetForTopTitle = 40;
-	
+	var topTitleOffset = 100;
+	var offsetForTopTitle = 50;
 	var UNCTotalTuition = 367;
-	
-	
-		
-	
-
 	var maxY = 0;
+	
     data.forEach(function(d) {
         d.tOutOfState = Number(d.tOutOfState);
 		d.tInState = Number(d.tInState);
@@ -146,23 +119,19 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		if(d.rInState + d.rOutOfState > maxY){
 			maxY = d.rInState + d.rOutOfState;
 		}
-		//console.log(d.rOutOfState + "is a type of number "+ typeof d.rOutOfState);
     });
 	
-	
+	/*--- Titles and lables for university information ---*/
 	
 	var schoolTitle = bottomSvg
 		.append('text')
 		.attr('class', 'schoolTitle percentText')
 		.attr("x", 0)
 		.attr("y", bottomSvgTopMargin + offsetForTopTitle)
-		.text( 'NA')
+		.text( 'Hover to select a university.')
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
-		.attr("fill", "#bbbbbb");
-		
-		
-	
+		.attr("fill", "#aaaaaa");
 	var inState = bottomSvg
 		.append('text')
 		.attr('class', 'inState percentText')
@@ -180,9 +149,7 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.text( 'Out Of State')
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
-		.attr("fill", "#bbbbbb");
-	
-	
+		.attr("fill", "#bbbbbb");	
 	var inOutTitle = bottomSvg
 		.append('text')
 		.attr('class', 'inOutTitle percentText titles')
@@ -192,7 +159,6 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
 		.attr("fill", "#bbbbbb");
-		
 	var inOutSubTitle = bottomSvg
 		.append('text')
 		.attr('class', 'inOutSubTitle percentText subtitles')
@@ -202,7 +168,6 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
 		.attr("fill", "#bbbbbb");
-	
 	var inOutTuitionTitle = bottomSvg
 		.append('text')
 		.attr('class', 'inOutTuitionTitle percentText titles')
@@ -212,7 +177,6 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
 		.attr("fill", "#bbbbbb");
-		
 	var inOutTuitionSubTitle = bottomSvg
 		.append('text')
 		.attr('class', 'inOutTuitionSubTitle percentText subtitles')
@@ -222,8 +186,6 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
 		.attr("fill", "#bbbbbb");
-
-		
 	var inOutRevTitle = bottomSvg
 		.append('text')
 		.attr('class', 'inOutRevTitle percentText titles')
@@ -233,7 +195,6 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
 		.attr("fill", "#bbbbbb");
-		
 	var inOutRevSubTitle = bottomSvg
 		.append('text')
 		.attr('class', 'inOutRevSubTitle percentText subtitles')
@@ -254,7 +215,6 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr('opacity', 0.6)
 		.on('mouseover', function(d) {
                 d3.select('.tooltip')
-                    //.html(d.university + "<br />In State " + Math.round(d.rInState))
                     .html("This section represents tuition revenue <br/> differences for UNC if they were to adpot <br/> the current school's in state/out of state <br/> student distribution. <br/> Calculating this is simply using UNC's student <br/> population and its current tuition rates, but <br/> changing the distribution of in state and <br/>out of state students with regard to the selected <br/>school. ")
 					.style('opacity', 1);
             })
@@ -263,14 +223,10 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
                     .style('opacity', 0);
             })
             .on('mousemove', function(d) {
-                //console.log(d3.event);
                 d3.select('.tooltip')
                     .style('left', (d3.event.clientX + 20) + 'px')
                     .style('top', (d3.event.clientY + 450) + 'px');
             });
-
-
-		
 	var inOutPopTitle = bottomSvg
 		.append('text')
 		.attr('class', 'inOutPopTitle percentText titles')
@@ -290,39 +246,30 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-size", "80px")
 		.attr("fill", "#bbbbbb");
 	
-	
+	/*--- section for percentage doughtnut chart ---*/
 	
 	var outOfStatePercent = 100;
 	var inStatePercent = 0;
-	
 	var fullArc = d3.svg.arc()
-		
 		.outerRadius(radius)
 		.innerRadius(radius - 20)
 		.startAngle(0)
 		.endAngle(Math.PI * 2);
-	
 	var fullCirlce = bottomSvg.append('circle')
 		.attr('class', 'fullCircle')
 		.attr("cx",  430 + inOutOffset)
         .attr("cy", bottomSvgTopMargin + 50 + shapesOffset+ topTitleOffset)
         .attr("r", 50)
         .attr('fill', '#cccccc');
-		
-	
 	var radius = 50;
 	var p = Math.PI * 2;
-		
-	var arc = d3.svg.arc()
-		
+	var arc = d3.svg.arc()	
 		.outerRadius(radius)
 		.innerRadius(radius - 20)
 		.startAngle(0+(Math.PI/3))
-		.endAngle(p+(Math.PI/3));
-		
+		.endAngle(p+(Math.PI/3));	
 	var arcMarginTop = bottomSvgTopMargin + 50 + shapesOffset+ topTitleOffset;
-	var arcLeftOffset = 430 + inOutOffset;
-	
+	var arcLeftOffset = 430 + inOutOffset;	
 	var leftPointForCircle = margin.left + 110;
 	var percentCircle = bottomSvg
 		.append("path")
@@ -338,10 +285,7 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
         .attr("r", 30)
         .attr('fill', 'white');
 	
-	var updateCircle = function(circ, p){
-		circ.endAngle = p;
-		
-	}
+	/*--- section for student distribution percentage info ---*/
 	
 	var outOfStatePercentNum = bottomSvg
 		.append("text")
@@ -361,9 +305,10 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
 		.attr("fill", "#bbbbbb");
-		
 	var tuitionRates = bottomSvg.append('g')
 		.attr('class', 'rates');
+		
+	/*--- section for tuition rates of selected university ---*/
 		
 	var outOfStateRate = tuitionRates.append('rect')
 		.attr('class', 'outOfStateRate')
@@ -379,6 +324,22 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
             .attr('y',  bottomSvgTopMargin + 10 + shapesOffset+ topTitleOffset)
             .attr('height', 20)
             .attr('fill', '#cccccc');
+	var otherInfoLine = tuitionRates.append('line')
+		.attr('class', 'otherInfoLine')
+            .attr('x1', 500 + inOutOffset)
+			.attr('x2', 500 +inOutOffset )
+            .attr('y1',  bottomSvgTopMargin + 10 + shapesOffset+ topTitleOffset)
+			.attr('y2',  bottomSvgTopMargin + 10 + shapesOffset+ topTitleOffset + 80)	
+            .attr('stroke-width', 1)
+            .attr('stroke', '#cccccc');
+	var otherInfoText = tuitionRates.append('text')
+			.attr('class', 'otherInfoText percentText')
+            .attr('x', 500 + inOutOffset)
+            .attr('y',  bottomSvgTopMargin + 10 + shapesOffset+ topTitleOffset + 120)			
+            .text('Other information about selected university')
+            .attr("font-family", "sans-serif")
+			.attr("font-size", "80px")
+			.attr("fill", "#bbbbbb");
 	var outOfStateNum = tuitionRates
 		.append('text')
 		.attr('class', 'outOfStateNum percentText')
@@ -397,7 +358,9 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
 		.attr("fill", "#bbbbbb");
-		
+	
+	/*--- section for revenues generated for UNC ---*/
+	
 	var tuitionRevenues = bottomSvg.append('g')
 		.attr('class', 'revenues');
 		
@@ -422,14 +385,6 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
             .attr('y',  bottomSvgTopMargin + 10 + shapesOffset+ topTitleOffset)
             .attr('height', 0)
             .attr('fill', '#66cef4');
-	/*var totalStateRevLine = tuitionRevenues.append('line')
-		.attr('class', 'totalStateRevLine')
-            .attr('x1', 130 + inOutOffset)
-			.attr('x2', 130+inOutOffset + 20)
-            .attr('y1',  bottomSvgTopMargin + 10 + shapesOffset+ topTitleOffset + 40)
-			.attr('y2',  bottomSvgTopMargin + 10 + shapesOffset+ topTitleOffset + 40)	
-            .attr('stroke-width', 1)
-            .attr('stroke', '#cccccc');*/
 	var totalStateRevNum = tuitionRates
 		.append('text')
 		.attr('class', 'totalStateRevNum percentText')
@@ -448,8 +403,6 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
 		.attr("fill", "#bbbbbb");
-	
-	
 	var outOfStateRevNum = tuitionRates
 		.append('text')
 		.attr('class', 'outOfStateRevNum percentText')
@@ -469,6 +422,8 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-size", "80px")
 		.attr("fill", "#bbbbbb");
 		
+	/*--- section for student population ---*/	
+		
 	var studentPop = bottomSvg.append('g')
 		.attr('class', 'population');
 	var studentPopNum = studentPop
@@ -480,15 +435,10 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 		.attr("font-family", "sans-serif")
 		.attr("font-size", "80px")
 		.attr("fill", "#cccccc");
-		
 
-    console.log(data);
-
-    scaleX.domain(data.map(function(d) { return d.university }));
-    //scaleY.domain([0, d3.max(data, function(d) { return d.fgp; }) + 0.1]);
-	//scaleY.domain([0, d3.max(data, function(d) { return d.rInState; })]);
+	/*--- main top chart section ---*/
 	
-	scaleY.domain([0, maxY]);
+    scaleX.domain(data.map(function(d) { return d.university }));
 	scaleY.domain([0, maxY]);
 	
     svg.append('g')
@@ -501,7 +451,9 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
         .attr('class', 'y axis')
 		.attr('fill', '#aaaaaa')
         .call(yAxis);
-		
+	
+	/*--- section for hovering over particular sections of chart and displaying information ---*/
+	
 	var barGroups = svg.selectAll('.bars')
 		.data(data)
 		.enter()
@@ -520,19 +472,18 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 			var totalR = 0;
 			var studentPop = 0;
 			var univ = '';
+			
+			//wouldn't let me select d[info] directly for some reason
 			for(var i in d){
 				console.log("i is : " + i + " d[i] is: "+ d[i]);
 				if(i == "pInState"){
 					inState = d[i];
-					console.log(inState);
 				}
 				else if(i == 'tInState'){
 					inStateT = d[i];
-					console.log("in state t " +inStateT);
 				}
 				else if(i == 'tOutOfState'){
 					outOfStateT = d[i];
-					console.log("out of state t " + outOfStateT);
 				}
 				else if(i == 'rInState'){
 					inStateR = d[i];
@@ -553,20 +504,19 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 			totalT = inStateT + outOfStateT;
 			maxT = (inStateT > outOfStateT) ? inStateT : outOfStateT;
 			p = (inState/100)*Math.PI*2
-			//console.log(p);
-			//console.log(arc);
+			
+			//update percentage circle
 		
 			arc = d3.svg.arc()
 				.outerRadius(radius)
 				.innerRadius(radius - 20)
 				.startAngle(0-(Math.PI/2))
 				.endAngle(p-(Math.PI/2));
-			d3.select('.percentCircle')
-	
-				
-				.attr("d", arc)
-				
-				
+			d3.select('.percentCircle')			
+				.attr("d", arc);
+			
+			//update all other information when hovering over university
+		
 			d3.select('.inStatePercentNum')
 				.text( inState+'%');
 			d3.select('.outOfStatePercentNum')
@@ -588,13 +538,10 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 			if(totalR < UNCTotalTuition){
 				var diff = (((UNCTotalTuition-totalR)/UNCTotalTuition)* 40);
 				d3.select('.totalStateRev')
-					/*.attr('height', diff)
-					.attr('y', bottomSvgTopMargin + 10 + shapesOffset+ topTitleOffset + 80)*/
 					d3.select('.totalStateRev')
 					.attr('height', diff)
 					.attr('y', bottomSvgTopMargin + 10 + shapesOffset+ topTitleOffset + 80 - diff)
 					.attr('fill', '#f45d5d');
-				
 				d3.select('.diffRevNum')
 					.text('Loss: $'+addCommas(UNCTotalTuition-totalR))
 					.attr('fill', '#f45d5d');
@@ -609,8 +556,7 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 					.attr('fill', '#73ea59');
 			}
 			d3.select('.totalStateRevNum')
-				.text('Total: $'+addCommas(totalR));
-				
+				.text('Total: $'+addCommas(totalR));	
 			d3.select('.inStateRevNum')
 				.text('$'+addCommas(inStateR));
 			d3.select('.outOfStateRevNum')
@@ -620,78 +566,9 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
 			d3.select('.schoolTitle')
 				.text(univ);
 		});
-		
-		
-		
-		setInterval(function() {
-			percentCircle.transition()
-			.duration(750)
-			.call(arcTween, Math.random() * Math.PI * 2);
-		}, 1500);
-		
-		
-		function arcTween(transition, newAngle) {
-
-		  // The function passed to attrTween is invoked for each selected element when
-		  // the transition starts, and for each element returns the interpolator to use
-		  // over the course of transition. This function is thus responsible for
-		  // determining the starting angle of the transition (which is pulled from the
-		  // element's bound datum, d.endAngle), and the ending angle (simply the
-		  // newAngle argument to the enclosing function).
-		  transition.attrTween("d", function(d) {
-
-			// To interpolate between the two angles, we use the default d3.interpolate.
-			// (Internally, this maps to d3.interpolateNumber, since both of the
-			// arguments to d3.interpolate are numbers.) The returned function takes a
-			// single argument t and returns a number between the starting angle and the
-			// ending angle. When t = 0, it returns d.endAngle; when t = 1, it returns
-			// newAngle; and for 0 < t < 1 it returns an angle in-between.
-			var interpolate = d3.interpolate(d.endAngle, newAngle);
-
-			// The return value of the attrTween is also a function: the function that
-			// we want to run for each tick of the transition. Because we used
-			// attrTween("d"), the return value of this last function will be set to the
-			// "d" attribute at every tick. (It's also possible to use transition.tween
-			// to run arbitrary code for every tick, say if you want to set multiple
-			// attributes from a single function.) The argument t ranges from 0, at the
-			// start of the transition, to 1, at the end.
-			return function(t) {
-
-			  // Calculate the current arc angle based on the transition time, t. Since
-			  // the t for the transition and the t for the interpolate both range from
-			  // 0 to 1, we can pass t directly to the interpolator.
-			  //
-			  // Note that the interpolated angle is written into the element's bound
-			  // data object! This is important: it means that if the transition were
-			  // interrupted, the data bound to the element would still be consistent
-			  // with its appearance. Whenever we start a new arc transition, the
-			  // correct starting angle can be inferred from the data.
-			  d.endAngle = interpolate(t);
-
-			  // Lastly, compute the arc path given the updated data! In effect, this
-			  // transition uses data-space interpolation: the data is interpolated
-			  // (that is, the end angle) rather than the path string itself.
-			  // Interpolating the angles in polar coordinates, rather than the raw path
-			  // string, produces valid intermediate arcs during the transition.
-			  return arc(d);
-			};
-		  });
-		}
-		
-		
 	
-/*		
-	var bars = barGroups.selectAll('.rOutOfState')
-		.data(function(d){ console.log("instate is: "+d.rInState + " out of stte is : " + d.rOutOfState);return [d.rOutOfState]; })
-		.enter()
-		.append('rect')
-		.attr('class', 'bar')
-            .attr('x', function(d) { return scaleX(d.university); })
-            .attr('width', scaleX.rangeBand())
-            .attr('y', function(d) { return scaleY(d.rOutOfState); })
-            .attr('height', function(d) { return height - scaleY(d.rOutOfState); })
-            .attr('fill', '#DE352E');
-*/
+	/*--- section for displaying stacked columns of potential revenue ---*/
+		
     barGroups.selectAll('.rOutOfState')
         .data(function(d){return [d];})
         .enter()
@@ -699,24 +576,9 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
             .attr('class', 'pOutOfState bar')
             .attr('x', function(d) { return scaleX(d.university); })
             .attr('width', scaleX.rangeBand())
-            .attr('y', function(d) { console.log("height is " + height + "in state is " + d.rInState + " out of state is " + d.rOutOfState );return height - d.rOutOfState; })
+            .attr('y', function(d) { return height - d.rOutOfState; })
             .attr('height', function(d) { return d.rOutOfState; })
             .attr('fill', '#66cef4');
-            /*.on('mouseover', function(d) {
-                d3.select('.tooltip')
-                    .html(d.university + "<br />Out of state " + Math.round(d.rOutOfState))
-                    .style('opacity', 1);
-            })
-            .on('mouseout', function(d) {
-                d3.select('.tooltip')
-                    .style('opacity', 0);
-            })
-            .on('mousemove', function(d) {
-                //console.log(d3.event);
-                d3.select('.tooltip')
-                    .style('left', (d3.event.clientX + 20) + 'px')
-                    .style('top', (d3.event.clientY) + 'px');
-            });*/
 			
 	barGroups.selectAll('.pInState')
         .data(function(d){return [d];})
@@ -727,28 +589,6 @@ d3.csv('cleanTuitionWithoutSome.csv', function(err, data) {
             .attr('width', scaleX.rangeBand())
             .attr('y', function(d) { 
 			return height - d.rOutOfState - d.rInState - 5; })
-			//return 0; })
-            //.attr('height', function(d) { return /*height - scaleY(d.pOutOfState);*/ scaleY(d.rOutOfState); })
 			.attr('height', function(d){return d.rInState;})
             .attr('fill', '#CCCCCC');
-            /*.on('mouseover', function(d) {
-                d3.select('.tooltip')
-                    .html(d.university + "<br />In State " + Math.round(d.rInState))
-                    .style('opacity', 1);
-            })
-            .on('mouseout', function(d) {
-                d3.select('.tooltip')
-                    .style('opacity', 0);
-            })
-            .on('mousemove', function(d) {
-                //console.log(d3.event);
-                d3.select('.tooltip')
-                    .style('left', (d3.event.clientX + 20) + 'px')
-                    .style('top', (d3.event.clientY) + 'px');
-            });*/
-	
-			
-	
-		
-
 });

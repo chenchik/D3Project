@@ -22,17 +22,14 @@
 			<p class="theTitle">Potential Tuition Revenue Generated</p>
 		</div>
 		
-		
-       
-
-        
-
         <div class="container theContainer">
 			<div class="infoDiv">
 				<img class="infoButton" src="info.png"/>
-				<p id="descriptionTitle">
-					The University of North Carolina at Chapel Hill has historically always had a 18% out state and 82% in state student population spread. This is a website showing the potential tuition revenue differences if UNC were to adopt the percentage distrubition of students of other peer and local universities.
-				</p>
+				<div id="descriptionTitle">
+					<p>The University of North Carolina at Chapel Hill has historically always had a 18% out state and 82% in state student population spread. This is a website showing the potential tuition revenue differences if UNC were to adopt the percentage distrubition of students of other peer and local universities.</p>
+					
+					<p>Click the "i" above to reveal further information.</p>
+				</div>
 				<div id="description" style="display:none;">
 				
 						<p class="innerIntro introToIntro">
@@ -40,11 +37,11 @@
 						</p>
 						
 						<p class="innerIntro">
-						Peer universities in this context are defined as public universities with similar rankings nationwide. Local universities are defined as public universities in North Carolina. Featured below is a graph showing the potential gains or lossses in tuition revenue in millions of dollars. The blue sections represent out of state numbers while the grey sections represent in state numbers. Tuition revenue is defined in this sense:
+						Peer universities in this context are defined as public universities with similar rankings nationwide. Local universities are defined as public universities in North Carolina. Featured below is a graph showing the potential gains or lossses in tuition revenue in millions of dollars. The blue sections represent out of state numbers while the grey sections represent in state numbers. Potential tuition revenue gain or loss is defined in this sense:
 						</p>
 						
 						<p class="innerIntro">
-						Keep UNC's student body population the same and keep it's tuiton rates the same. Simply change the percentages for student distribution. 
+						Keep UNC's student body population the same and keep it's tuition rates the same. Simply change the percentages for student distribution. 
 						</p>
 					
 						<p class="innerIntro">
@@ -63,12 +60,6 @@
 				<a href="https://github.com/chenchik/D3Project" class="footerInfo"><p>Project Information</p></a>
 			</div>
 		</div>
-		<script>
-		$('.infoButton').on('click', function(e){
-			$('#description').slideToggle('fast');
-			$('#descriptionTitle').slideUp('fast');
-		});
-		</script>
         <script src="app.js"></script>
     </body>
 </html>

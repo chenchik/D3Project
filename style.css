@@ -78,7 +78,7 @@ img.infoButton:hover {
     font-size: 16px;
 	padding-bottom: 30px;
 }
-p#descriptionTitle {
+#descriptionTitle {
     margin-bottom: 30px;
     margin-top: 30px;
     color: #aaa;
@@ -138,4 +138,7 @@ p.innerIntro.introToIntro {
 }
 .barGroups:hover rect.bar {
     opacity: 0.6;
+}
+.otherInfoText{
+	font-size: 15px;
 }

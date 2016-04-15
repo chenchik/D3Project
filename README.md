@@ -23,6 +23,6 @@ To run the website on your local machine type this into the command line:
 
 Now the website will be running on port 3000.
 
-To access the site, type this into the url.
+To access the site, type this into your browser's url.
 
 <code>http://localhost:3000</code>
